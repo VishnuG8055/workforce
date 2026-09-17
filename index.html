@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorkforceIQ | HR Planning Analysis</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-shell">
+
+        <!-- ================= SIDEBAR ================= -->
+        <aside class="sidebar">
+
+            <div class="brand">
+                <div class="brand-mark">
+                    <i data-lucide="bar-chart-3"></i>
+                </div>
+
+                <div>
+                    <h1>Workforce<span>IQ</span></h1>
+                    <p>HR PLANNING ANALYSIS</p>
+                </div>
+            </div>
+
+            <div class="sidebar-label">ANALYSIS</div>
+
+            <nav class="sidebar-nav">
+
+                <button class="nav-item active" data-section="overview">
+                    <i data-lucide="layout-dashboard"></i>
+                    <span>Overview</span>
+                </button>
+
+                <button class="nav-item" data-section="gaps">
+                    <i data-lucide="alert-triangle"></i>
+                    <span>HR Gaps</span>
+                </button>
+
+                <button class="nav-item" data-section="recruitment">
+                    <i data-lucide="briefcase"></i>
+                    <span>Recruitment Needs</span>
+                </button>
+
+                <button class="nav-item" data-section="planning">
+                    <i data-lucide="trending-up"></i>
+                    <span>2027 Forecast</span>
+                </button>
+
+                <button class="nav-item" data-section="learning">
+                    <i data-lucide="graduation-cap"></i>
+                    <span>L&D Analysis</span>
+                </button>
+
+                <button class="nav-item" data-section="succession">
+                    <i data-lucide="git-branch"></i>
+                    <span>Succession Plan</span>
+                </button>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="sidebar-mini-card">
+                    <div class="mini-icon">
+                        <i data-lucide="sparkles"></i>
+                    </div>
+                    <div>
+                        <strong>Strategic HR Planning</strong>
+                        <p>Data-driven workforce decisions for growth.</p>
+                    </div>
+                </div>
+
+                <div class="sidebar-user">
+                    <div class="avatar">GV</div>
+                    <div>
+                        <strong>G. Vishnu Vardhan</strong>
+                        <span>HR Administrator</span>
+                    </div>
+                    <i data-lucide="chevron-down"></i>
+                </div>
+            </div>
+
+        </aside>
+
+
+        <!-- ================= MAIN CONTENT ================= -->
+        <main class="main-content">
+
+            <!-- TOPBAR -->
+            <header class="topbar">
+                <div class="breadcrumb">
+                    <span>Workspace</span>
+                    <i data-lucide="chevron-right"></i>
+                    <strong id="breadcrumbTitle">Overview</strong>
+                </div>
+
+                <div class="topbar-actions">
+                    <button class="icon-button" title="Notifications">
+                        <i data-lucide="bell"></i>
+                        <span class="notification-dot"></span>
+                    </button>
+
+                    <div class="topbar-date">
+                        <i data-lucide="calendar-days"></i>
+                        <span id="currentDate"></span>
+                    </div>
+                </div>
+            </header>
+
+
+            <!-- ================= OVERVIEW SECTION ================= -->
+            <section id="overview" class="page-section active-section">
+
+                <div class="hero-section">
+                    <div>
+                        <div class="eyebrow">
+                            <span class="eyebrow-dot"></span>
+                            EXECUTIVE SUMMARY
+                        </div>
+
+                        <h2>HR Planning Analysis</h2>
+
+                        <p class="hero-description">
+                            Comprehensive analysis of workforce gaps, recruitment needs, L&D effectiveness, 
+                            and succession planning based on 350 employees across 10 departments.
+                        </p>
+                    </div>
+                </div>
+
+
+                <!-- KPI CARDS -->
+                <div class="kpi-grid">
+
+                    <div class="kpi-card purple-card">
+                        <div class="kpi-top">
+                            <span>Total Employees</span>
+                            <div class="kpi-icon purple">
+                                <i data-lucide="users"></i>
+                            </div>
+                        </div>
+                        <div class="kpi-value" id="totalEmployees">350</div>
+                        <div class="kpi-bottom">
+                            <span class="trend positive">
+                                <i data-lucide="arrow-up-right"></i>
+                                Current Headcount
+                            </span>
+                            <span class="kpi-caption">Active workforce</span>
+                        </div>
+                    </div>
+
+
+                    <div class="kpi-card orange-card">
+                        <div class="kpi-top">
+                            <span>Attrition Risk</span>
+                            <div class="kpi-icon orange">
+                                <i data-lucide="alert-circle"></i>
+                            </div>
+                        </div>
+                        <div class="kpi-value" id="attritionCount">29</div>
+                        <div class="kpi-bottom">
+                            <span class="trend warning">
+                                <i data-lucide="arrow-down"></i>
+                                Positions at Risk
+                            </span>
+                            <span class="kpi-caption">8.3% attrition rate</span>
+                        </div>
+                    </div>
+
+
+                    <div class="kpi-card red-card">
+                        <div class="kpi-top">
+                            <span>HR Gaps</span>
+                            <div class="kpi-icon red">
+                                <i data-lucide="trending-down"></i>
+                            </div>
+                        </div>
+                        <div class="kpi-value" id="hrGaps">29</div>
+                        <div class="kpi-bottom">
+                            <span class="trend negative">
+                                <i data-lucide="activity"></i>
+                                Immediate Gaps
+                            </span>
+                            <span class="kpi-caption">Recruitment required</span>
+                        </div>
+                    </div>
+
+
+                    <div class="kpi-card blue-card">
+                        <div class="kpi-top">
+                            <span>Succession Gaps</span>
+                            <div class="kpi-icon blue">
+                                <i data-lucide="git-branch"></i>
+                            </div>
+                        </div>
+                        <div class="kpi-value" id="successionGaps">30</div>
+                        <div class="kpi-bottom">
+                            <span class="trend neutral">
+                                <i data-lucide="briefcase-business"></i>
+                                Future Readiness
+                            </span>
+                            <span class="kpi-caption">Development needed</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="insights-container">
+                    <h3>Key Findings</h3>
+                    <div class="insights-grid">
+                        <div class="insight-card">
+                            <div class="insight-icon critical">
+                                <i data-lucide="alert-triangle"></i>
+                            </div>
+                            <div class="insight-content">
+                                <h4>Critical HR Gaps</h4>
+                                <p>Compliance Officer (4 gaps), Talent Specialists (3 gaps), and Marketing roles (3 gaps) have highest attrition impact.</p>
+                            </div>
+                        </div>
+
+                        <div class="insight-card">
+                            <div class="insight-icon warning">
+                                <i data-lucide="zap"></i>
+                            </div>
+                            <div class="insight-content">
+                                <h4>Department Impact</h4>
+                                <p>Regulatory Affairs, Human Resources, and Marketing departments need immediate recruitment intervention.</p>
+                            </div>
+                        </div>
+
+                        <div class="insight-card">
+                            <div class="insight-icon neutral">
+                                <i data-lucide="trending-up"></i>
+                            </div>
+                            <div class="insight-content">
+                                <h4>2027 Projection</h4>
+                                <p>Estimated workforce growth to 400-420 employees with strategic recruitment and 12% growth rate.</p>
+                            </div>
+                        </div>
+
+                        <div class="insight-card">
+                            <div class="insight-icon success">
+                                <i data-lucide="star"></i>
+                            </div>
+                            <div class="insight-content">
+                                <h4>L&D Effectiveness</h4>
+                                <p>Mixed effectiveness: 40% Highly Effective/Effective, 30% Neutral. Training shows varying productivity impact.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <!-- ================= GAPS SECTION ================= -->
+            <section id="gaps" class="page-section">
+
+                <div class="section-header">
+                    <div>
+                        <div class="eyebrow">QUESTION 1</div>
+                        <h2>Identify Tentative HR Gaps</h2>
+                        <p>Analysis of positions with attrition risk and identified gaps</p>
+                    </div>
+                </div>
+
+                <div class="charts-container two-column">
+                    <div class="chart-card">
+                        <h3>Gap Distribution by Position</h3>
+                        <canvas id="gapChart"></canvas>
+                    </div>
+
+                    <div class="chart-card">
+                        <h3>Department-wise Attrition Impact</h3>
+                        <canvas id="departmentAttritionChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="analysis-card">
+                    <h3>Detailed Gap Analysis</h3>
+                    <div class="table-responsive">
+                        <table class="analysis-table">
+                            <thead>
+                                <tr>
+                                    <th>Department</th>
+                                    <th>Position</th>
+                                    <th>Current</th>
+                                    <th>Attrition</th>
+                                    <th>Post-Attrition</th>
+                                    <th>Gap %</th>
+                                </tr>
+                            </thead>
+                            <tbody id="gapTableBody">
+                                <!-- Populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="conclusion-box critical">
+                        <div class="conclusion-icon">
+                            <i data-lucide="info"></i>
+                        </div>
+                        <div>
+                            <h4>CONCLUSION: Critical HR Gaps Identified</h4>
+                            <p><strong>Total Gaps:</strong> 29 positions across 17 job roles</p>
+                            <p><strong>Critical Gaps (Loss >2 employees):</strong></p>
+                            <ul>
+                                <li><strong>Compliance Officer:</strong> 4 positions lost (20% of workforce) - Regulatory Affairs dept</li>
+                                <li><strong>Talent Acquisition Specialist:</strong> 3 positions lost (17.6% of workforce) - HR dept</li>
+                                <li><strong>Marketing Executive:</strong> 3 positions lost (16.7% of workforce) - Marketing dept</li>
+                                <li><strong>Cybersecurity Analyst:</strong> 2 positions lost (15.4% of workforce) - IT dept</li>
+                                <li><strong>Digital Marketing Specialist:</strong> 2 positions lost (9.5% of workforce) - Marketing dept</li>
+                                <li><strong>Sales roles:</strong> 4 positions lost (Enterprise Mgr +2, Sales Exec +2) - Sales dept</li>
+                            </ul>
+                            <p><strong>Recommendation:</strong> Immediate recruitment required for 17 high-priority positions. Priority: Compliance, HR, and Sales roles.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <!-- ================= RECRUITMENT SECTION ================= -->
+            <section id="recruitment" class="page-section">
+
+                <div class="section-header">
+                    <div>
+                        <div class="eyebrow">QUESTION 2</div>
+                        <h2>Identify Departments Needing Immediate Recruitment</h2>
+                        <p>Department-wise recruitment intervention strategy</p>
+                    </div>
+                </div>
+
+                <div class="charts-container">
+                    <div class="chart-card full-width">
+                        <h3>Recruitment Priority by Department</h3>
+                        <canvas id="recruitmentPriorityChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="recruitment-grid">
+                    <div class="recruitment-card critical">
+                        <div class="priority-badge">CRITICAL</div>
+                        <h4>Regulatory Affairs</h4>
+                        <div class="recruitment-stat">
+                            <span class="number">4</span>
+                            <span class="label">Positions Needed</span>
+                        </div>
+                        <p>Compliance Officer gaps threaten regulatory compliance. Immediate hiring required.</p>
+                        <div class="action-list">
+                            <div class="action">
+                                <i data-lucide="check"></i>
+                                <span>Hire 4 Compliance Officers</span>
+                            </div>
+                            <div class="action">
+                                <i data-lucide="check"></i>
+                                <span>Timeline: Q1 2025</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="recruitment-card critical">
+                        <div class="priority-badge">CRITICAL</div>
+                        <h4>Human Resources</h4>
+                        <div class="recruitment-stat">
+                            <span class="number">3</span>
+                            <span class="label">Positions Needed</span>
+                        </div>
+                        <p>Talent Acquisition Specialists needed to support organizational growth and hiring.</p>
+                        <div class="action-list">
+                            <div class="action">
+                                <i data-lucide="check"></i>
+                                <span>Hire 3 TA Specialists</span>
+                            </div>
+                            <div class="action">
+                                <i data-lucide="check"></i>
+                                <span>Timeline: Q1 2025</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="recruitment-card high">
+                        <div class="priority-badge">HIGH</div>
+                        <h4>Marketing</h4>
+                        <div class="recruitment-stat">
+                            <span class="number">5</span>
+                            <span class="label">Positions Needed</span>
+                        </div>
+                        <p>Marketing Executive and Digital Specialist roles critical for brand presence.</p>
+                        <div class="action-list">
+                            <div class="action">
+                                <i data-lucide="check"></i>
+                                <span>Hire 3 Marketing Exec + 2 Digital Spec</span>
+                            </div>
+                            <div class="action">
+                                <i data-lucide="check"></i>
+                                <span>Timeline: Q1-Q2 2025</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="recruitment-card high">
+                        <div class="priority-badge">HIGH</div>
+                        <h4>Sales</h4>
+                        <div class="recruitment-stat">
+                            <span class="number">4</span>
+                            <span class="label">Positions Needed</span>
+                        </div>
+                        <p>Enterprise and Area Sales roles need immediate reinforcement for revenue targets.</p>
+                        <div class="action-list">
+                            <div class="action">
+                                <i data-lucide="check"></i>
+                                <span>Hire 2 Enterprise Mgr + 2 Sales Exec</span>
+                            </div>
+                            <div class="action">
+                                <i data-lucide="check"></i>
+                                <span>Timeline: Q1 2025</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="recruitment-card medium">
+                        <div class="priority-badge">MEDIUM</div>
+                        <h4>IT Department</h4>
+                        <div class="recruitment-stat">
+                            <span class="number">2</span>
+                            <span class="label">Positions Needed</span>
+                        </div>
+                        <p>Cybersecurity Analysts needed for data protection and compliance.</p>
+                        <div class="action-list">
+                            <div class="action">
+                                <i data-lucide="check"></i>
+                                <span>Hire 2 Cybersecurity Analysts</span>
+                            </div>
+                            <div class="action">
+                                <i data-lucide="check"></i>
+                                <span>Timeline: Q2 2025</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="recruitment-card medium">
+                        <div class="priority-badge">MEDIUM</div>
+                        <h4>Other Departments</h4>
+                        <div class="recruitment-stat">
+                            <span class="number">11</span>
+                            <span class="label">Positions Needed</span>
+                        </div>
+                        <p>Supply Chain, Finance, Customer Support, and Network Operations.</p>
+                        <div class="action-list">
+                            <div class="action">
+                                <i data-lucide="check"></i>
+                                <span>Distributed hiring across roles</span>
+                            </div>
+                            <div class="action">
+                                <i data-lucide="check"></i>
+                                <span>Timeline: Q2-Q3 2025</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="conclusion-box high">
+                    <div class="conclusion-icon">
+                        <i data-lucide="info"></i>
+                    </div>
+                    <div>
+                        <h4>CONCLUSION: Prioritized Recruitment Strategy</h4>
+                        <p><strong>Total Recruitment Needed: 29 positions</strong></p>
+                        <p><strong>Immediate Action (Critical - Q1 2025):</strong> 11 positions - Compliance, HR, Sales roles requiring fastest turnaround</p>
+                        <p><strong>Phase 2 (High - Q1-Q2 2025):</strong> 7 positions - Marketing and IT roles</p>
+                        <p><strong>Phase 3 (Medium - Q2-Q3 2025):</strong> 11 positions - Supply Chain, Finance, Support roles</p>
+                        <p><strong>Estimated Hiring Cost:</strong> ₹ 2-3 Crore for external recruitment + internal promotions</p>
+                        <p><strong>Alternative Strategy:</strong> Consider 40% internal promotions (12 positions) and 60% external hiring (17 positions)</p>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <!-- ================= PLANNING SECTION ================= -->
+            <section id="planning" class="page-section">
+
+                <div class="section-header">
+                    <div>
+                        <div class="eyebrow">QUESTION 3</div>
+                        <h2>Manpower Estimate for 2027</h2>
+                        <p>Projected workforce growth with strategic reasoning</p>
+                    </div>
+                </div>
+
+                <div class="charts-container">
+                    <div class="chart-card full-width">
+                        <h3>Workforce Growth Projection (2025-2027)</h3>
+                        <canvas id="projectionChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="projection-cards">
+                    <div class="projection-card">
+                        <div class="projection-year">2025</div>
+                        <div class="projection-number">350</div>
+                        <div class="projection-label">Current Headcount</div>
+                        <div class="projection-detail">Baseline year</div>
+                    </div>
+
+                    <div class="projection-arrow">
+                        <i data-lucide="arrow-right"></i>
+                    </div>
+
+                    <div class="projection-card">
+                        <div class="projection-year">2026</div>
+                        <div class="projection-number">380</div>
+                        <div class="projection-label">Expected Headcount</div>
+                        <div class="projection-detail">+30 employees (8.6% growth)</div>
+                    </div>
+
+                    <div class="projection-arrow">
+                        <i data-lucide="arrow-right"></i>
+                    </div>
+
+                    <div class="projection-card highlight">
+                        <div class="projection-year">2027</div>
+                        <div class="projection-number">415</div>
+                        <div class="projection-label">Target Headcount</div>
+                        <div class="projection-detail">+35 employees (9.2% growth)</div>
+                    </div>
+                </div>
+
+                <div class="projection-details">
+                    <h3>Detailed Calculation & Reasoning</h3>
+
+                    <div class="calculation-box">
+                        <h4>2027 Manpower Estimate: 415 Employees</h4>
+                        
+                        <div class="calculation-item">
+                            <span class="calc-label">Current Workforce (2025)</span>
+                            <span class="calc-value">+350</span>
+                        </div>
+
+                        <div class="calculation-item">
+                            <span class="calc-label">Attrition Replacement</span>
+                            <span class="calc-value">+29</span>
+                            <div class="calc-detail">Fill existing 29 position gaps identified in attrition analysis</div>
+                        </div>
+
+                        <div class="calculation-item">
+                            <span class="calc-label">Succession Plan Fulfillment</span>
+                            <span class="calc-value">+30</span>
+                            <div class="calc-detail">Close 30 succession gaps: HR Business Partner (+5), Cybersecurity (+5), Systems Admin (+4), Enterprise Sales (+5), Financial Analyst (+4), Others (+7)</div>
+                        </div>
+
+                        <div class="calculation-item">
+                            <span class="calc-label">Strategic Growth (12%)</span>
+                            <span class="calc-value">+42</span>
+                            <div class="calc-detail">Business expansion: 12 in RF Planning, 8 in IT, 7 in Sales, 6 in Marketing, 5 in Network Operations, 4 in Finance</div>
+                        </div>
+
+                        <div class="calculation-item special">
+                            <span class="calc-label"><strong>Total 2027 Requirement</strong></span>
+                            <span class="calc-value"><strong>451 Positions</strong></span>
+                        </div>
+
+                        <div class="calculation-item">
+                            <span class="calc-label">Less: Internal Promotions</span>
+                            <span class="calc-value">-36</span>
+                            <div class="calc-detail">40% of gaps filled through internal promotions and development</div>
+                        </div>
+
+                        <div class="calculation-item final">
+                            <span class="calc-label"><strong>New External Hiring Required</strong></span>
+                            <span class="calc-value"><strong>+65 Positions</strong></span>
+                        </div>
+
+                        <div class="calculation-item final">
+                            <span class="calc-label"><strong>Projected 2027 Workforce</strong></span>
+                            <span class="calc-value"><strong>415 Employees</strong></span>
+                            <div class="calc-detail">350 current + 65 new hires (accounting for internal movement)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="growth-breakdown">
+                    <h3>Growth by Department (2027 Target)</h3>
+                    <canvas id="departmentGrowthChart"></canvas>
+                </div>
+
+                <div class="conclusion-box success">
+                    <div class="conclusion-icon">
+                        <i data-lucide="info"></i>
+                    </div>
+                    <div>
+                        <h4>CONCLUSION: 2027 Manpower Planning</h4>
+                        <p><strong>Recommended 2027 Headcount: 415 Employees</strong></p>
+                        <p><strong>Growth Strategy:</strong> 18.6% increase over 2 years (from 350 to 415)</p>
+                        <p><strong>Recruitment Plan:</strong></p>
+                        <ul>
+                            <li>Year 1 (2025): 45 external hires (attrition replacement + some growth)</li>
+                            <li>Year 2 (2026): 20 external hires (remaining gaps + succession)</li>
+                            <li>Internal Promotion Rate: 40% - Develop current talent for advancement</li>
+                            <li>External Hiring Rate: 60% - 65 new external hires over 2 years</li>
+                        </ul>
+                        <p><strong>Investment Required:</strong> ₹ 4-5 Crore for recruitment, training, and infrastructure</p>
+                        <p><strong>Revenue Impact:</strong> 415 employee team can support ₹ 100-120 Crore annual revenue target</p>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <!-- ================= LEARNING SECTION ================= -->
+            <section id="learning" class="page-section">
+
+                <div class="section-header">
+                    <div>
+                        <div class="eyebrow">QUESTION 4</div>
+                        <h2>L&D Effectiveness Analysis</h2>
+                        <p>Does L&D investment improve performance and should training process be altered?</p>
+                    </div>
+                </div>
+
+                <div class="charts-container two-column">
+                    <div class="chart-card">
+                        <h3>Training Program Effectiveness</h3>
+                        <canvas id="effectivenessChart"></canvas>
+                    </div>
+
+                    <div class="chart-card">
+                        <h3>Productivity Impact by Quarter</h3>
+                        <canvas id="productivityChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="ld-metrics-grid">
+                    <div class="ld-metric-card">
+                        <div class="metric-header">
+                            <h4>Highly Effective Programs</h4>
+                            <span class="metric-count">2</span>
+                        </div>
+                        <div class="programs-list">
+                            <div class="program-item">
+                                <div class="program-badge high">✓</div>
+                                <div>
+                                    <strong>5G Network Fundamentals</strong>
+                                    <small>Q1: 91.1% → Q4: 77.3% productivity</small>
+                                </div>
+                            </div>
+                            <div class="program-item">
+                                <div class="program-badge high">✓</div>
+                                <div>
+                                    <strong>Workplace Safety</strong>
+                                    <small>Q1: 93.0% → Q4: 80.5% productivity</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ld-metric-card">
+                        <div class="metric-header">
+                            <h4>Effective Programs</h4>
+                            <span class="metric-count">4</span>
+                        </div>
+                        <div class="programs-list">
+                            <div class="program-item">
+                                <div class="program-badge success">✓</div>
+                                <div>
+                                    <strong>Fiber Optic Maintenance</strong>
+                                    <small>Avg: 88% productivity (11 hrs trained)</small>
+                                </div>
+                            </div>
+                            <div class="program-item">
+                                <div class="program-badge success">✓</div>
+                                <div>
+                                    <strong>Customer Experience</strong>
+                                    <small>Avg: 88% productivity (163 participants)</small>
+                                </div>
+                            </div>
+                            <div class="program-item">
+                                <div class="program-badge success">✓</div>
+                                <div>
+                                    <strong>Project Management</strong>
+                                    <small>Avg: 91% productivity (20 participants)</small>
+                                </div>
+                            </div>
+                            <div class="program-item">
+                                <div class="program-badge success">✓</div>
+                                <div>
+                                    <strong>Cloud Infrastructure</strong>
+                                    <small>Avg: 89% productivity (16 hours trained)</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ld-metric-card">
+                        <div class="metric-header">
+                            <h4>Neutral Effectiveness</h4>
+                            <span class="metric-count">3</span>
+                        </div>
+                        <div class="programs-list">
+                            <div class="program-item">
+                                <div class="program-badge neutral">○</div>
+                                <div>
+                                    <strong>Leadership Essentials</strong>
+                                    <small>Variable results: 92.4% Q4 but only 75.2% Q2</small>
+                                </div>
+                            </div>
+                            <div class="program-item">
+                                <div class="program-badge neutral">○</div>
+                                <div>
+                                    <strong>Cybersecurity Awareness</strong>
+                                    <small>Declining trend: 92.9% Q1 → 75.0% Q4</small>
+                                </div>
+                            </div>
+                            <div class="program-item">
+                                <div class="program-badge neutral">○</div>
+                                <div>
+                                    <strong>Sales Excellence</strong>
+                                    <small>Inconsistent: 83.2% Q1 → 96.8% Q4 (spiky)</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="performance-analysis">
+                    <h3>Detailed L&D Impact Analysis</h3>
+
+                    <div class="analysis-table-container">
+                        <table class="ld-table">
+                            <thead>
+                                <tr>
+                                    <th>Training Program</th>
+                                    <th>Participants</th>
+                                    <th>Hours Delivered</th>
+                                    <th>Avg Productivity</th>
+                                    <th>Effectiveness Rating</th>
+                                    <th>Trend</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ldTableBody">
+                                <!-- Populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="ld-recommendations">
+                    <h3>Key Findings & Recommendations</h3>
+
+                    <div class="recommendation-item critical">
+                        <div class="rec-icon">
+                            <i data-lucide="alert-triangle"></i>
+                        </div>
+                        <div>
+                            <h4>Problem 1: Declining Productivity in Q3-Q4</h4>
+                            <p>Most programs show declining productivity from Q1 (high engagement) to Q4 (fatigue/disengagement). Average decline of 10-15% across all programs.</p>
+                            <strong>Action:</strong> Implement quarterly refresher modules instead of single intensive training. Spread training across year more evenly.
+                        </div>
+                    </div>
+
+                    <div class="recommendation-item high">
+                        <div class="rec-icon">
+                            <i data-lucide="zap"></i>
+                        </div>
+                        <div>
+                            <h4>Problem 2: Mixed Effectiveness Results</h4>
+                            <p>60% programs effective/highly effective, but 30% show neutral results with declining trends, especially Leadership and Cybersecurity.</p>
+                            <strong>Action:</strong> Overhaul neutral programs with interactive, hands-on components. Focus on practical application vs theory.
+                        </div>
+                    </div>
+
+                    <div class="recommendation-item warning">
+                        <div class="rec-icon">
+                            <i data-lucide="trending-down"></i>
+                        </div>
+                        <div>
+                            <h4>Problem 3: Sustainability Gap</h4>
+                            <p>Strong initial impact (Q1 productivity 91-93%) but doesn't sustain. Employees retain only 60-70% of trained skills by year-end.</p>
+                            <strong>Action:</strong> Add ongoing reinforcement, mentoring programs, and performance follow-ups post-training.
+                        </div>
+                    </div>
+
+                    <div class="recommendation-item success">
+                        <div class="rec-icon">
+                            <i data-lucide="check-circle"></i>
+                        </div>
+                        <div>
+                            <h4>Success Pattern: Large Cohorts Work Better</h4>
+                            <p>Programs with 150+ participants (Customer Experience, Leadership) show better ROI than small group training (5G Network: 59 participants).</p>
+                            <strong>Action:</strong> Consolidate training where possible to achieve economies of scale and group learning benefits.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="process-changes">
+                    <h3>Recommended Training Process Changes</h3>
+
+                    <div class="change-item">
+                        <div class="change-number">1</div>
+                        <div>
+                            <strong>Adopt Blended Learning Model</strong>
+                            <p>70% self-paced online + 20% instructor-led workshops + 10% peer learning/mentoring. Allows flexibility and better retention.</p>
+                        </div>
+                    </div>
+
+                    <div class="change-item">
+                        <div class="change-number">2</div>
+                        <div>
+                            <strong>Implement Monthly Refresher Cycles</strong>
+                            <p>Instead of annual training, deploy monthly 2-hour reinforcement sessions to combat Q3-Q4 productivity decline.</p>
+                        </div>
+                    </div>
+
+                    <div class="change-item">
+                        <div class="change-number">3</div>
+                        <div>
+                            <strong>Revamp Evaluation Method</strong>
+                            <p>Current measurement focuses on participation. Add pre/post assessments, 90-day performance tracking, and manager feedback.</p>
+                        </div>
+                    </div>
+
+                    <div class="change-item">
+                        <div class="change-number">4</div>
+                        <div>
+                            <strong>Link L&D to Performance Ratings</strong>
+                            <p>Make training outcomes part of performance appraisal. This will increase accountability and skill application.</p>
+                        </div>
+                    </div>
+
+                    <div class="change-item">
+                        <div class="change-number">5</div>
+                        <div>
+                            <strong>Prioritize Effective Programs</strong>
+                            <p>Double investment in Highly Effective programs (5G, Workplace Safety). Scale to larger audiences with lower per-participant cost.</p>
+                        </div>
+                    </div>
+
+                    <div class="change-item">
+                        <div class="change-number">6</div>
+                        <div>
+                            <strong>Modernize Neutral Programs</strong>
+                            <p>Leadership and Cybersecurity need curriculum redesign with case studies, simulations, and real-world applications.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="conclusion-box warning">
+                    <div class="conclusion-icon">
+                        <i data-lucide="info"></i>
+                    </div>
+                    <div>
+                        <h4>CONCLUSION: L&D Effectiveness Assessment</h4>
+                        <p><strong>Does L&D improve performance? PARTIALLY YES</strong></p>
+                        <p><strong>Current State:</strong> 60% of programs show strong ROI (Highly Effective/Effective), but sustainability is poor with 10-15% productivity decline by year-end.</p>
+                        <p><strong>Opportunity:</strong> Current training hours (34.93 hrs/employee) show moderate impact. With process improvements, estimated 25-30% improvement in performance outcomes.</p>
+                        <p><strong>Should Training Process Be Altered? YES - CRITICAL</strong></p>
+                        <p><strong>Recommended Investment:</strong> ₹ 40 lakhs for L&D platform upgrade + ₹ 20 lakhs for curriculum revision + ₹ 15 lakhs for monthly reinforcement programs</p>
+                        <p><strong>Expected ROI:</strong> 15% improvement in team productivity = ₹ 5-8 Crore additional revenue annually</p>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <!-- ================= SUCCESSION SECTION ================= -->
+            <section id="succession" class="page-section">
+
+                <div class="section-header">
+                    <div>
+                        <div class="eyebrow">QUESTION 5</div>
+                        <h2>Succession Planning & Internal Promotions</h2>
+                        <p>Positions needing succession planning and available internal promotions</p>
+                    </div>
+                </div>
+
+                <div class="charts-container">
+                    <div class="chart-card full-width">
+                        <h3>Succession Gaps by Position</h3>
+                        <canvas id="successionChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="succession-overview">
+                    <h3>Overall Succession Status</h3>
+                    <div class="succession-stats">
+                        <div class="stat-box">
+                            <span class="stat-number">30</span>
+                            <span class="stat-label">Total Gaps</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-number">10</span>
+                            <span class="stat-label">Positions at Risk</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-number">12</span>
+                            <span class="stat-label">Internal Candidates</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-number">18</span>
+                            <span class="stat-label">External Hiring Needed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="succession-positions">
+                    <h3>Critical Succession Positions</h3>
+
+                    <div class="position-card critical">
+                        <div class="position-header">
+                            <div>
+                                <h4>HR Business Partner</h4>
+                                <span class="gap-badge">+5 Gap</span>
+                            </div>
+                            <span class="gap-percentage">45%</span>
+                        </div>
+                        <div class="position-metrics">
+                            <div class="metric">
+                                <span>Current:</span>
+                                <strong>11</strong>
+                            </div>
+                            <div class="metric">
+                                <span>Required:</span>
+                                <strong>16</strong>
+                            </div>
+                            <div class="metric">
+                                <span>Gap:</span>
+                                <strong class="critical-text">+5</strong>
+                            </div>
+                        </div>
+                        <div class="promotion-box">
+                            <h5>Internal Promotion Strategy:</h5>
+                            <ul>
+                                <li>Promote 3 HR Executives → HR Business Partner</li>
+                                <li>Identify 2 Senior HR Coordinators for development</li>
+                                <li>Hire 2 experienced HR Business Partners externally</li>
+                            </ul>
+                            <p class="promotion-note">Promotion Rate: 60% internal, 40% external</p>
+                        </div>
+                    </div>
+
+                    <div class="position-card critical">
+                        <div class="position-header">
+                            <div>
+                                <h4>Cybersecurity Analyst</h4>
+                                <span class="gap-badge">+5 Gap</span>
+                            </div>
+                            <span class="gap-percentage">39%</span>
+                        </div>
+                        <div class="position-metrics">
+                            <div class="metric">
+                                <span>Current:</span>
+                                <strong>13</strong>
+                            </div>
+                            <div class="metric">
+                                <span>Required:</span>
+                                <strong>18</strong>
+                            </div>
+                            <div class="metric">
+                                <span>Gap:</span>
+                                <strong class="critical-text">+5</strong>
+                            </div>
+                        </div>
+                        <div class="promotion-box">
+                            <h5>Internal Promotion Strategy:</h5>
+                            <ul>
+                                <li>Promote 2 Systems Admin → Cybersecurity Analyst</li>
+                                <li>Fast-track 1 IT Support staff with certifications</li>
+                                <li>Hire 2 Cybersecurity Analysts + 1 Lead externally</li>
+                            </ul>
+                            <p class="promotion-note">Promotion Rate: 40% internal, 60% external</p>
+                        </div>
+                    </div>
+
+                    <div class="position-card high">
+                        <div class="position-header">
+                            <div>
+                                <h4>Systems Administrator</h4>
+                                <span class="gap-badge">+4 Gap</span>
+                            </div>
+                            <span class="gap-percentage">57%</span>
+                        </div>
+                        <div class="position-metrics">
+                            <div class="metric">
+                                <span>Current:</span>
+                                <strong>7</strong>
+                            </div>
+                            <div class="metric">
+                                <span>Required:</span>
+                                <strong>11</strong>
+                            </div>
+                            <div class="metric">
+                                <span>Gap:</span>
+                                <strong class="high-text">+4</strong>
+                            </div>
+                        </div>
+                        <div class="promotion-box">
+                            <h5>Internal Promotion Strategy:</h5>
+                            <ul>
+                                <li>Promote 1 Technical Support → Systems Admin</li>
+                                <li>Cross-train 1 Network Engineer → Systems Admin</li>
+                                <li>Hire 2 Systems Administrators externally</li>
+                            </ul>
+                            <p class="promotion-note">Promotion Rate: 50% internal, 50% external</p>
+                        </div>
+                    </div>
+
+                    <div class="position-card high">
+                        <div class="position-header">
+                            <div>
+                                <h4>Enterprise Sales Manager</h4>
+                                <span class="gap-badge">+5 Gap</span>
+                            </div>
+                            <span class="gap-percentage">45%</span>
+                        </div>
+                        <div class="position-metrics">
+                            <div class="metric">
+                                <span>Current:</span>
+                                <strong>11</strong>
+                            </div>
+                            <div class="metric">
+                                <span>Required:</span>
+                                <strong>16</strong>
+                            </div>
+                            <div class="metric">
+                                <span>Gap:</span>
+                                <strong class="high-text">+5</strong>
+                            </div>
+                        </div>
+                        <div class="promotion-box">
+                            <h5>Internal Promotion Strategy:</h5>
+                            <ul>
+                                <li>Promote 2 Area Sales Manager → Enterprise Sales Manager</li>
+                                <li>Identify 1 Senior Sales Executive for accelerated development</li>
+                                <li>Hire 2 Enterprise Sales Managers externally</li>
+                            </ul>
+                            <p class="promotion-note">Promotion Rate: 60% internal, 40% external</p>
+                        </div>
+                    </div>
+
+                    <div class="position-card high">
+                        <div class="position-header">
+                            <div>
+                                <h4>Financial Analyst</h4>
+                                <span class="gap-badge">+4 Gap</span>
+                            </div>
+                            <span class="gap-percentage">17%</span>
+                        </div>
+                        <div class="position-metrics">
+                            <div class="metric">
+                                <span>Current:</span>
+                                <strong>24</strong>
+                            </div>
+                            <div class="metric">
+                                <span>Required:</span>
+                                <strong>28</strong>
+                            </div>
+                            <div class="metric">
+                                <span>Gap:</span>
+                                <strong class="high-text">+4</strong>
+                            </div>
+                        </div>
+                        <div class="promotion-box">
+                            <h5>Internal Promotion Strategy:</h5>
+                            <ul>
+                                <li>Promote 2 Junior Accountants → Financial Analyst</li>
+                                <li>Fast-track 1 Finance Coordinator</li>
+                                <li>Hire 1 Senior Financial Analyst externally</li>
+                            </ul>
+                            <p class="promotion-note">Promotion Rate: 75% internal, 25% external</p>
+                        </div>
+                    </div>
+
+                    <div class="position-card medium">
+                        <div class="position-header">
+                            <div>
+                                <h4>Other Positions</h4>
+                                <span class="gap-badge">+7 Gap</span>
+                            </div>
+                        </div>
+                        <div class="position-list">
+                            <div class="position-item">
+                                <strong>Senior RF Engineer:</strong> +2 gap (14→16) - Promote 1 RF Engineer, hire 1 externally
+                            </div>
+                            <div class="position-item">
+                                <strong>Compliance Officer:</strong> +2 gap (20→22) - Promote 1 Regulatory Specialist, hire 1 externally
+                            </div>
+                            <div class="position-item">
+                                <strong>NOC Engineer:</strong> +1 gap (11→12) - Internal promotion from Network Engineer
+                            </div>
+                            <div class="position-item">
+                                <strong>Area Sales Manager:</strong> +1 gap (13→14) - Internal promotion from Sales Executive
+                            </div>
+                            <div class="position-item">
+                                <strong>Network Engineer:</strong> +1 gap (8→9) - External hire</li>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="promotion-summary">
+                    <h3>Overall Internal Promotion Strategy</h3>
+
+                    <div class="promotion-overview">
+                        <div class="promotion-stat">
+                            <span class="stat-value">30</span>
+                            <span class="stat-text">Total Gaps</span>
+                        </div>
+                        <div class="promotion-stat">
+                            <span class="stat-value">12</span>
+                            <span class="stat-text">Can Be Filled<br/>Internally (40%)</span>
+                        </div>
+                        <div class="promotion-stat">
+                            <span class="stat-value">18</span>
+                            <span class="stat-text">Require External<br/>Hiring (60%)</span>
+                        </div>
+                    </div>
+
+                    <div class="development-roadmap">
+                        <h4>2-Year Development Roadmap</h4>
+                        
+                        <div class="roadmap-phase">
+                            <div class="phase-title">Year 1 (2025): Foundation</div>
+                            <ul>
+                                <li>Identify 15 high-potential employees for succession track</li>
+                                <li>Create 5 targeted development programs (leadership, technical)</li>
+                                <li>Establish mentoring partnerships with current senior leaders</li>
+                                <li>Implement quarterly progress reviews with development plans</li>
+                            </ul>
+                        </div>
+
+                        <div class="roadmap-phase">
+                            <div class="phase-title">Year 2 (2026): Acceleration</div>
+                            <ul>
+                                <li>Promote 8-10 identified high-potentials to succession positions</li>
+                                <li>Enroll 5 external hires in orientation + mentoring</li>
+                                <li>Fill remaining 8 positions through targeted recruitment</li>
+                                <li>Certify 3-5 employees for future executive roles</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="succession-candidates">
+                    <h3>High-Potential Candidates for Promotion</h3>
+                    <div class="candidates-note">
+                        Based on PM ratings (Outstanding/Exceeds performers) with consistent performance
+                    </div>
+
+                    <div class="candidates-grid">
+                        <div class="candidate-card">
+                            <div class="candidate-info">
+                                <h5>Lakshmi Iyer</h5>
+                                <span class="position">Financial Analyst</span>
+                                <span class="rating">Outstanding Rating</span>
+                            </div>
+                            <div class="candidate-detail">
+                                <p><strong>Current Performance:</strong> 4/6 years Outstanding</p>
+                                <p><strong>Promotion Target:</strong> Senior Financial Analyst</p>
+                                <p><strong>Timeline:</strong> 12 months</p>
+                            </div>
+                        </div>
+
+                        <div class="candidate-card">
+                            <div class="candidate-info">
+                                <h5>Aditya Saxena</h5>
+                                <span class="position">Sales Executive</span>
+                                <span class="rating">Outstanding Rating</span>
+                            </div>
+                            <div class="candidate-detail">
+                                <p><strong>Current Performance:</strong> 5/6 years Strong</p>
+                                <p><strong>Promotion Target:</strong> Enterprise Sales Manager</p>
+                                <p><strong>Timeline:</strong> 12-18 months</p>
+                            </div>
+                        </div>
+
+                        <div class="candidate-card">
+                            <div class="candidate-info">
+                                <h5>Kiran Kulkarni</h5>
+                                <span class="position">Talent Acquisition Specialist</span>
+                                <span class="rating">Outstanding Rating</span>
+                            </div>
+                            <div class="candidate-detail">
+                                <p><strong>Current Performance:</strong> 6/6 years Outstanding</p>
+                                <p><strong>Promotion Target:</strong> HR Business Partner</p>
+                                <p><strong>Timeline:</strong> 12 months</p>
+                            </div>
+                        </div>
+
+                        <div class="candidate-card">
+                            <div class="candidate-info">
+                                <h5>Ananya Saxena</h5>
+                                <span class="position">Procurement Executive</span>
+                                <span class="rating">Outstanding Rating</span>
+                            </div>
+                            <div class="candidate-detail">
+                                <p><strong>Current Performance:</strong> 5/6 years Outstanding</p>
+                                <p><strong>Promotion Target:</strong> Supply Chain Manager</p>
+                                <p><strong>Timeline:</strong> 18 months</p>
+                            </div>
+                        </div>
+
+                        <div class="candidate-card">
+                            <div class="candidate-info">
+                                <h5>Rohan Kulkarni</h5>
+                                <span class="position">Field Operations Engineer</span>
+                                <span class="rating">Outstanding Rating</span>
+                            </div>
+                            <div class="candidate-detail">
+                                <p><strong>Current Performance:</strong> 5/6 years Outstanding</p>
+                                <p><strong>Promotion Target:</strong> NOC Manager</p>
+                                <p><strong>Timeline:</strong> 18 months</p>
+                            </div>
+                        </div>
+
+                        <div class="candidate-card">
+                            <div class="candidate-info">
+                                <h5>Bhavna Das</h5>
+                                <span class="position">HR Business Partner</span>
+                                <span class="rating">Outstanding Rating</span>
+                            </div>
+                            <div class="candidate-detail">
+                                <p><strong>Current Performance:</strong> 3/6 years Exceeds</p>
+                                <p><strong>Promotion Target:</strong> Head of HR Operations</p>
+                                <p><strong>Timeline:</strong> 24 months</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="conclusion-box success">
+                    <div class="conclusion-icon">
+                        <i data-lucide="info"></i>
+                    </div>
+                    <div>
+                        <h4>CONCLUSION: Succession Planning & Internal Promotions</h4>
+                        <p><strong>Succession Gap: 30 Positions Need Fulfillment</strong></p>
+                        <p><strong>Internal Promotion Opportunity: 40% (12 positions)</strong></p>
+                        <ul>
+                            <li>HR Business Partner: 3 from HR Executives</li>
+                            <li>Cybersecurity Analyst: 2 from Systems Admin</li>
+                            <li>Systems Administrator: 2 from IT Support</li>
+                            <li>Enterprise Sales Manager: 2 from Area Sales Manager</li>
+                            <li>Financial Analyst: 2 from Accountants</li>
+                            <li>Senior RF Engineer: 1 from RF Engineer</li>
+                        </ul>
+                        <p><strong>External Hiring Requirement: 60% (18 positions)</strong></p>
+                        <p><strong>High-Potential Candidates Ready for Promotion: 6 identified</strong> (can fill 20% of immediate needs)</p>
+                        <p><strong>Implementation Timeline: 24 months with quarterly development reviews</strong></p>
+                        <p><strong>Investment Required: ₹ 50 lakhs for development programs + mentoring + certifications</strong></p>
+                        <p><strong>Risk Mitigation: Create 2-3 back-up candidates for each critical position through accelerated development</strong></p>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <!-- FOOTER -->
+            <footer class="footer">
+                <span>WorkforceIQ - HR Planning Analysis</span>
+                <span>Strategic Workforce Intelligence Platform</span>
+                <span>Analysis Date: <span id="footerDate"></span></span>
+            </footer>
+
+        </main>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
